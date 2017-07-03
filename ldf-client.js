@@ -14,12 +14,12 @@ var exports = module.exports = {
   HttpClient: require('./lib/util/HttpClient'),
   SparqlResultWriter: function () {
     var SparqlResultWriter = require('./lib/writers/SparqlResultWriter');
-    SparqlResultWriter.register('application/json', './JSONResultWriter');
-    SparqlResultWriter.register('application/sparql-results+json', './SparqlJSONResultWriter');
-    SparqlResultWriter.register('application/sparql-results+xml', './SparqlXMLResultWriter');
-    SparqlResultWriter.register('debug',  './StatsResultWriter');
-    SparqlResultWriter.register('simple', './SimpleResultWriter');
-    SparqlResultWriter.register('table',  './TableResultWriter');
+    SparqlResultWriter.register('application/json', require('./lib/writers/JSONResultWriter'));
+    SparqlResultWriter.register('application/sparql-results+json', require('./lib/writers/SparqlJSONResultWriter'));
+    SparqlResultWriter.register('application/sparql-results+xml', require('./lib/writers/SparqlXMLResultWriter'));
+    SparqlResultWriter.register('debug',  require('./lib/writers/StatsResultWriter'));
+    SparqlResultWriter.register('simple', require('./lib/writers/SimpleResultWriter'));
+    SparqlResultWriter.register('table',  require('./lib/writers/TableResultWriter'));
     return SparqlResultWriter;
   },
 };
